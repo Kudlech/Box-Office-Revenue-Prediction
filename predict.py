@@ -20,7 +20,7 @@ with open('preprocessor.pkl', 'rb') as input:
 data = prep.transform(data_raw)
 
 # logtarget = np.log1p(data.revenue)
-# data = data.drop(['revenue'],axis = 1)
+data = data.drop(['revenue'],axis = 1)
 
 bst_lgbm = lgb.Booster(model_file='lgbm_model.txt')  # init model
 preds_lgbm = bst_lgbm.predict(data)
